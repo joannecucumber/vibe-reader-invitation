@@ -1316,7 +1316,7 @@ body {
     0 0 80px rgba(72,230,185,0.08),
     0 0 0 1px rgba(255,255,255,0.1);
   background:
-    linear-gradient(135deg, #eaf5ff 0%, #f4ecff 35%, #ffeef2 70%, #e8fff4 100%);
+    linear-gradient(135deg, #f7f9fb 0%, #d8dde3 28%, #eef2f6 50%, #bec5cd 72%, #e4e9ef 100%);
   overflow: hidden;
 }
 .tkt-scene.is-open .tkt-card {
@@ -1334,13 +1334,13 @@ body {
   inset: 0;
   background:
     linear-gradient(115deg,
-      rgba(72,230,185,0.0) 0%,
-      rgba(160,220,255,0.35) 18%,
-      rgba(255,200,220,0.3) 32%,
-      rgba(220,180,255,0.42) 48%,
-      rgba(180,255,220,0.35) 64%,
-      rgba(255,210,180,0.32) 80%,
-      rgba(72,230,185,0.0) 100%);
+      rgba(255,255,255,0.0) 0%,
+      rgba(210,225,240,0.60) 18%,
+      rgba(245,248,252,0.55) 32%,
+      rgba(160,180,200,0.70) 48%,
+      rgba(225,232,240,0.60) 64%,
+      rgba(170,190,210,0.55) 80%,
+      rgba(255,255,255,0.0) 100%);
   mix-blend-mode: screen;
   animation: tkt-holo 7s linear infinite;
   background-size: 220% 220%;
@@ -1355,9 +1355,9 @@ body {
 .tkt-dots {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(60,50,120,0.22) 1px, transparent 1.4px);
+  background-image: radial-gradient(rgba(40,45,55,0.18) 1px, transparent 1.4px);
   background-size: 7px 7px;
-  opacity: 0.55;
+  opacity: 0.45;
   mix-blend-mode: multiply;
   pointer-events: none;
 }
