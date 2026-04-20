@@ -1,0 +1,184 @@
+/* ============================================================
+   Vibe Reader — Core Tokens
+   Foundations derived from the Figma file (vibe reader ds.fig).
+   Load Inter + Fraunces via CDN; SF Pro is Apple-licensed and
+   substituted with Inter for web. See README for details.
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300..800;1,400..700&display=swap");
+
+:root {
+  /* -------- Brand colors -------- */
+  --vr-mint: #48E6B9;           /* primary brand accent — "vibe" green */
+  --vr-mint-ink: #036B75;       /* darker teal for on-mint text */
+  --vr-mint-deep: #079CAA;      /* hover / pressed state for mint */
+  --vr-mint-soft: #DDF7FF;      /* insight card bg, lightest */
+  --vr-sky: #C0E3EE;            /* insight card bg, mid */
+  --vr-sky-ink: #3D4D83;        /* dark ink used on sky cards */
+  --vr-teal: #57ADC7;           /* insight card bg, deep */
+  --vr-teal-stroke: #7BD0EA;    /* mid teal card stroke */
+  --vr-teal-stroke-2: #90D6EB;  /* lightest card stroke */
+  --vr-danger: #FF4242;         /* progress / record dot */
+  --vr-danger-deep: #D30606;    /* play-button fill */
+  --vr-gold: #D7B358;           /* accents / award-union */
+
+  /* -------- Neutrals (dark-first) -------- */
+  --vr-bg-0: #02061D;           /* deepest navy — gradient bottom */
+  --vr-bg-1: #292F56;            /* upper navy — gradient top */
+  --vr-bg-2: #15121422;          /* muted shade used on nested surfaces */
+  --vr-surface: rgba(255,255,255,0.06);  /* glassy chips / capsules */
+  --vr-surface-strong: rgba(255,255,255,0.12);
+  --vr-hairline: rgba(255,255,255,0.10); /* phone-frame border */
+  --vr-divider: #F2F2F2;        /* light divider */
+
+  --vr-fg-0: #FFFFFF;           /* primary text on dark */
+  --vr-fg-1: #D3D3D3;           /* secondary text on dark */
+  --vr-fg-2: #999999;           /* tertiary / meta */
+  --vr-fg-3: #404040;            /* progress track off */
+  --vr-fg-ink: #07164E;         /* darkest ink (on light cards) */
+
+  /* -------- Gradients & effects -------- */
+  --vr-bg-gradient: linear-gradient(180deg, var(--vr-bg-1) 0%, var(--vr-bg-0) 100%);
+  --vr-card-glow: 0 25px 45.6px rgba(47, 65, 122, 0.30);
+  --vr-card-glow-inner: 0 7px 47px rgba(255, 255, 255, 0.06);
+  --vr-soft-shadow: 0 4px 34px 10px rgba(0, 0, 0, 0.25);
+  --vr-mint-highlight: rgba(72, 230, 185, 0.30);  /* title underline slab */
+
+  /* -------- Corner radii -------- */
+  --vr-r-xs: 8px;
+  --vr-r-sm: 14px;
+  --vr-r-md: 20px;               /* small chip / language pill */
+  --vr-r-lg: 30px;               /* insight card */
+  --vr-r-xl: 60px;               /* phone inner frame */
+  --vr-r-pill: 100px;            /* capsule buttons */
+  --vr-r-phone: 130px;           /* phone outer frame */
+
+  /* -------- Spacing -------- */
+  --vr-space-1: 4px;
+  --vr-space-2: 8px;
+  --vr-space-3: 12px;
+  --vr-space-4: 16px;
+  --vr-space-5: 20px;
+  --vr-space-6: 24px;
+  --vr-space-8: 32px;
+  --vr-space-10: 40px;
+  --vr-space-14: 56px;
+  --vr-space-20: 80px;
+
+  /* -------- Type — families -------- */
+  --vr-font-display: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --vr-font-body: "Inter", "SF Pro Text", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --vr-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* -------- Type scale — App UI (native iOS sizes, 1× px) --------
+     Designs are drawn at 3× (1242 wide). Divide by 3 to get device px. */
+  --vr-ui-xs: 13px;    /* micro captions */
+  --vr-ui-sm: 15px;    /* secondary */
+  --vr-ui-md: 17px;    /* body */
+  --vr-ui-lg: 19px;    /* callout */
+  --vr-ui-xl: 22px;    /* insight headline */
+  --vr-ui-2xl: 28px;   /* screen title */
+
+  /* -------- Type scale — Marketing (stage @ 3×) -------- */
+  --vr-mk-caption: 40px;         /* on-dark captions */
+  --vr-mk-insight-label: 36px;   /* "Insight 01" */
+  --vr-mk-insight-title: 45px;   /* insight card body */
+  --vr-mk-chip: 50px;            /* emoji chips / "Hello" tiles */
+  --vr-mk-subtitle: 90px;        /* light-weight subtitle */
+  --vr-mk-title: 120px;          /* bold headline */
+  --vr-mk-hero: 130px;           /* italic hero */
+
+  /* -------- Weights (match Figma usage) -------- */
+  --vr-w-light: 300;    /* marketing subtitles */
+  --vr-w-regular: 400;  /* captions, body */
+  --vr-w-medium: 500;   /* chips, insight labels */
+  --vr-w-bold: 700;     /* marketing titles */
+  --vr-w-heavy: 800;    /* hero italic */
+
+  /* -------- Tight tracking used on marketing type -------- */
+  --vr-tracking-tight: -0.3px;
+}
+
+/* ============================================================
+   Semantic element styles — usable directly via these classes
+   or by nesting inside .vr-type / .vr-ink contexts.
+   ============================================================ */
+
+.vr-type, body.vr-type {
+  font-family: var(--vr-font-body);
+  color: var(--vr-fg-0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.vr-hero {
+  font-family: var(--vr-font-display);
+  font-style: italic;
+  font-weight: var(--vr-w-heavy);
+  font-size: var(--vr-mk-hero);
+  line-height: 1.1;
+  letter-spacing: var(--vr-tracking-tight);
+  color: var(--vr-fg-0);
+}
+
+.vr-title {
+  font-family: var(--vr-font-display);
+  font-weight: var(--vr-w-bold);
+  font-size: var(--vr-mk-title);
+  line-height: 1.04;
+  letter-spacing: var(--vr-tracking-tight);
+  color: var(--vr-fg-0);
+}
+
+.vr-subtitle {
+  font-family: var(--vr-font-body);
+  font-weight: var(--vr-w-light);
+  font-size: var(--vr-mk-subtitle);
+  line-height: 1.22;
+  letter-spacing: var(--vr-tracking-tight);
+  color: var(--vr-fg-0);
+}
+
+.vr-caption {
+  font-family: var(--vr-font-body);
+  font-weight: var(--vr-w-regular);
+  font-size: var(--vr-mk-caption);
+  line-height: 1.5;
+  color: var(--vr-fg-1);
+}
+
+.vr-insight-label {
+  font-family: var(--vr-font-body);
+  font-weight: var(--vr-w-medium);
+  font-size: var(--vr-mk-insight-label);
+  line-height: 1.55;
+  letter-spacing: var(--vr-tracking-tight);
+  color: var(--vr-fg-ink);
+}
+
+.vr-chip {
+  font-family: var(--vr-font-body);
+  font-weight: var(--vr-w-medium);
+  font-size: var(--vr-mk-chip);
+  line-height: 1.12;
+  letter-spacing: var(--vr-tracking-tight);
+  color: var(--vr-fg-0);
+}
+
+/* App UI */
+.vr-screen-title { font-weight: 700; font-size: var(--vr-ui-2xl); line-height: 1.2; color: var(--vr-fg-0); letter-spacing: -0.2px; }
+.vr-body        { font-weight: 400; font-size: var(--vr-ui-md); line-height: 1.5; color: var(--vr-fg-0); }
+.vr-body-muted  { font-weight: 400; font-size: var(--vr-ui-md); line-height: 1.5; color: var(--vr-fg-2); }
+.vr-meta        { font-weight: 400; font-size: var(--vr-ui-xs); line-height: 1.35; color: var(--vr-fg-2); }
+.vr-insight     { font-weight: 700; font-size: var(--vr-ui-xl); line-height: 1.3; color: var(--vr-fg-0); }
+
+/* Signature italicized hero "highlight slab" — a mint rectangle drawn
+   behind a run of text. Use in a <span class="vr-highlight-slab"> within
+   .vr-hero. (See README → Visual Foundations.) */
+.vr-highlight-slab {
+  background-color: var(--vr-mint-highlight);
+  padding: 0 0.08em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
