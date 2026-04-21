@@ -89,7 +89,7 @@ function TicketV4({ influencer, codes, onReset, isOpen, setIsOpen }) {
                 ))}
                 <button className="tkt-how-link" onClick={() => setShowRedeem(true)}>
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-                  How to redeem
+                  兌換步驟
                 </button>
               </div>
 
@@ -126,9 +126,9 @@ function TicketV4({ influencer, codes, onReset, isOpen, setIsOpen }) {
 
 function RedeemModal({ onClose }) {
   const steps = [
-    { t: "Download the app", d: "Get Vibe Reader from the App Store." },
-    { t: "Open your profile", d: "In the app, go to Profile and tap “Enter redemption code”." },
-    { t: "Enter the code", d: "Codes are case-insensitive. Once redeemed, your plan activates — the tier badge in the top-right of your home screen will switch to your new plan." },
+    { t: "下載 App", d: "到 App Store 下載 Vibe Reader" },
+    { t: "進入個人頁面", d: "打開 App → 個人頁面 → 點擊「輸入兌換碼」" },
+    { t: "輸入兌換碼", d: "不分大小寫，兌換後方案即生效 — 首頁右上角標籤會切換為對應方案" },
   ];
   return (
     <div className="tkt-modal-backdrop" onClick={onClose}>
@@ -136,7 +136,7 @@ function RedeemModal({ onClose }) {
         <button className="tkt-modal-close" onClick={onClose} aria-label="Close">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
-        <div className="tkt-modal-title">How to redeem</div>
+        <div className="tkt-modal-title">兌換步驟</div>
         <ol className="tkt-modal-steps">
           {steps.map((s, i) => (
             <li key={i}>
